@@ -45,7 +45,8 @@ public class CategoryFiles {
 		remove.delete();
 
 		try {
-			for (String line : list) {
+			for (int i = 0; i < list.size(); i++) {
+				String line = list.get(i);
 				line = line + "\n";
 				Files.write(txt, line.getBytes(), StandardOpenOption.APPEND);
 			}
