@@ -47,8 +47,12 @@ public class CategoryFiles {
 		try {
 			for (int i = 0; i < list.size(); i++) {
 				String line = list.get(i);
-				line = line + "\n";
-				Files.write(txt, line.getBytes(), StandardOpenOption.APPEND);
+				line = line + "\n";				
+				if (i == 0) {
+					Files.write(txt, line.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
+				} else {
+					Files.write(txt, line.getBytes(), StandardOpenOption.APPEND);
+				}
 			}
 		} catch (IOException e) {
 		    e.printStackTrace();
